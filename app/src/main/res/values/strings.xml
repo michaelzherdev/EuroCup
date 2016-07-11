@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">EuroCup</string>
+
+    <!-- places -->
+    <string name="euro_place_1960">France 1960</string>
+    <string name="euro_place_1964">Spain 1964</string>
+    <string name="euro_place_1968">Italy 1968</string>
+    <string name="euro_place_1972">Belgium 1972</string>
+    <string name="euro_place_1976">Yugoslavia 1976</string>
+    <string name="euro_place_1980">Italy 1980</string>
+    <string name="euro_place_1984">France 1984</string>
+    <string name="euro_place_1988">FRG 1988</string>
+    <string name="euro_place_1992">Sweden 1992</string>
+    <string name="euro_place_1996">England 1996</string>
+    <string name="euro_place_2000">Belgium/Netherlands 2000</string>
+    <string name="euro_place_2004">Portugal 2004</string>
+    <string name="euro_place_2008">Austria/Switzerland 2008</string>
+    <string name="euro_place_2012">Ukraine/Poland 2012</string>
+    <string name="euro_place_2016">France 2016</string>
+
+    <!-- euroCupActivity -->
+    <string name="euro_location">Location: </string>
+    <string name="euro_winner">Winner: </string>
+    <string name="button_play_off">Play-off</string>
+    <string name="button_group_stage">Group stage</string>
+</resources>

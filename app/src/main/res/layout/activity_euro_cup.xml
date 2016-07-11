@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/euro_year"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/app_name"/>
+
+    <TextView
+        android:id="@+id/euro_location"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/euro_location"/>
+
+    <ImageView
+        android:id="@+id/euro_winner_flag"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/euro_winner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/euro_winner"/>
+
+    <Button
+        android:id="@+id/button_play_off"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/button_play_off" />
+
+    <Button
+        android:id="@+id/button_group_stage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/button_group_stage"/>
+
+</LinearLayout>
