@@ -8,16 +8,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import ru.mzherdev.eurocup.R;
 import ru.mzherdev.eurocup.model.EuroInfo;
+import ru.mzherdev.eurocup.model.Match;
 import ru.mzherdev.eurocup.ui.EuroCupActivity;
 
 /**
@@ -46,9 +45,8 @@ public class EuroListAdapter extends RecyclerView.Adapter<EuroListAdapter.ViewHo
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(ctx, EuroCupActivity.class);
-                intent.putExtra("euro_data", euros.get(position).getName());
+                intent.putExtra("euro_data", position);
                 intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                Log.d("ViewHolder", "onClick " + position + "; " + euros.get(position).getName());
                 ctx.startActivity(intent);
             }
         });

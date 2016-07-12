@@ -1,0 +1,98 @@
+[
+  {
+    "id": "1",
+    "group": "group A",
+    "place": "1",
+    "country": "FRG",
+    "games": "3",
+    "wins": "2",
+    "draws": "1",
+    "loses": "0",
+    "balls": "4 - 2",
+    "points": "5"
+  },
+  {
+    "id": "2",
+    "group": "group A",
+    "place": "2",
+    "country": "Czechoslovakia",
+    "games": "3",
+    "wins": "1",
+    "draws": "1",
+    "loses": "1",
+    "balls": "4 - 3",
+    "points": "3"
+  },
+  {
+    "id": "3",
+    "group": "group A",
+    "place": "3",
+    "country": "Netherlands",
+    "games": "3",
+    "wins": "1",
+    "draws": "1",
+    "loses": "1",
+    "balls": "4 - 4",
+    "points": "3"
+  },
+  {
+    "id": "4",
+    "group": "group A",
+    "place": "4",
+    "country": "Greece",
+    "games": "3",
+    "wins": "0",
+    "draws": "1",
+    "loses": "2",
+    "balls": "1 - 4",
+    "points": "1"
+  },
+  {
+    "id": "5",
+    "group": "group B",
+    "place": "1",
+    "country": "Belgium",
+    "games": "3",
+    "wins": "1",
+    "draws": "2",
+    "loses": "0",
+    "balls": "3 - 2",
+    "points": "4"
+  },
+  {
+    "id": "6",
+    "group": "group B",
+    "place": "2",
+    "country": "Italy",
+    "games": "3",
+    "wins": "1",
+    "draws": "2",
+    "loses": "0",
+    "balls": "1 - 0",
+    "points": "4"
+  },
+  {
+    "id": "7",
+    "group": "group B",
+    "place": "3",
+    "country": "England",
+    "games": "3",
+    "wins": "1",
+    "draws": "1",
+    "loses": "1",
+    "balls": "3 - 3",
+    "points": "3"
+  },
+  {
+    "id": "4",
+    "group": "group B",
+    "place": "4",
+    "country": "Spain",
+    "games": "3",
+    "wins": "0",
+    "draws": "1",
+    "loses": "2",
+    "balls": "2 - 4",
+    "points": "1"
+  }
+]

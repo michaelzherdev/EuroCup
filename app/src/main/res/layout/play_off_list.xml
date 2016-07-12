@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/constraintLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/stage_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp"
+        android:text="Final"
+        android:textAllCaps="true" />
+
+    <TextView
+        android:id="@+id/date_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@id/stage_textView"
+        android:layout_marginStart="16dp"
+        android:text="Date" />
+
+    <TextView
+        android:id="@+id/stadium_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_below="@+id/stage_textView"
+        android:layout_marginEnd="16dp"
+        android:text="Stadium" />
+
+
+    <TextView
+        android:id="@+id/result_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/date_textView"
+        android:layout_centerHorizontal="true"
+        android:text="0 : 0" />
+
+    <TextView
+        android:id="@+id/half_result_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/result_textView"
+        android:layout_centerHorizontal="true"
+        android:text="(0 : 0)" />
+
+    <TextView
+        android:id="@+id/penalty_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/half_result_textView"
+        android:layout_centerHorizontal="true" />
+
+
+    <ImageView
+        android:id="@+id/home_team_imageView"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_below="@id/date_textView"
+        android:layout_marginEnd="32dp"
+        android:layout_toStartOf="@id/result_textView"
+        android:contentDescription="Home team flag"
+        android:src="@drawable/euro2016" />
+
+    <ImageView
+        android:id="@+id/away_team_imageView"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_below="@id/date_textView"
+        android:layout_marginStart="32dp"
+        android:layout_toEndOf="@id/result_textView"
+        android:contentDescription="Away team flag"
+        android:src="@drawable/euro2016" />
+
+    <TextView
+        android:id="@+id/home_team_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/date_textView"
+        android:layout_margin="16dp"
+        android:layout_toStartOf="@id/home_team_imageView"
+        android:text="Country 1" />
+
+    <TextView
+        android:id="@+id/away_team_textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/date_textView"
+        android:layout_margin="16dp"
+        android:layout_toEndOf="@id/away_team_imageView"
+        android:text="Country 2" />
+</RelativeLayout>

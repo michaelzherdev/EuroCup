@@ -9,6 +9,8 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
+import ru.mzherdev.eurocup.model.EuroInfo;
+import ru.mzherdev.eurocup.model.GroupStats;
 import ru.mzherdev.eurocup.model.Match;
 
 /**
@@ -23,21 +25,24 @@ public class JsonParser {
         List<Match> matches = new ArrayList<>();
         try {
             jsonArray = new JSONArray(data);
-            Log.d("JsonParser", "getJSONArray size " + jsonArray.length());
             for (int i = 0; i < jsonArray.length(); i++) {
                 Match match = new Match();
                 JSONObject jsonObject = jsonArray.getJSONObject(i);
-                match.setMatchId(jsonObject.getString("match_id"));
+                match.setMatchId(jsonObject.getInt("match_id"));
                 match.setCountry(jsonObject.getString("country"));
                 match.setCity(jsonObject.getString("city"));
                 match.setStadium(jsonObject.getString("stadium"));
                 match.setHomeTeam(jsonObject.getString("home_team"));
+                if (jsonObject.has("home_team_flag"))
+                    match.setHomeTeamFlag(jsonObject.getString("home_team_flag"));
                 match.setAwayTeam(jsonObject.getString("away_team"));
+                if (jsonObject.has("away_team_flag"))
+                    match.setAwayTeamFlag(jsonObject.getString("away_team_flag"));
                 match.setHomeGoalsHalfTime(jsonObject.getString("home_goals_half_time"));
                 match.setAwayGoalsHalfTime(jsonObject.getString("away_goals_half_time"));
                 match.setHomeGoalsFullTime(jsonObject.getString("home_goals_full_time"));
                 match.setAwayGoalsFullTime(jsonObject.getString("away_goals_full_time"));
-                match.setAdditionalTime(jsonObject.getString("additional_time"));
+                match.setAdditionalTime(jsonObject.getBoolean("additional_time"));
                 if (jsonObject.has("penalty"))
                     match.setPenalty(jsonObject.getString("penalty"));
                 match.setYear(jsonObject.getString("year"));
@@ -50,10 +55,61 @@ public class JsonParser {
             e.printStackTrace();
         }
 
-        for (Match match : matches)
-            Log.d("JsonParser", "matches  " + match);
-
         return matches;
+    }
+
+    public List<EuroInfo> parseCups(String data) {
+        Log.d("JsonParser", "start parsing..");
+        JSONArray jsonArray;
+        List<EuroInfo> euroInfos = new ArrayList<>();
+        try {
+            jsonArray = new JSONArray(data);
+            for (int i = 0; i < jsonArray.length(); i++) {
+                EuroInfo euroInfo = new EuroInfo();
+                JSONObject jsonObject = jsonArray.getJSONObject(i);
+                euroInfo.setId(jsonObject.getInt("id"));
+                euroInfo.setLocation(jsonObject.getString("location"));
+                euroInfo.setWinner(jsonObject.getString("winner"));
+                euroInfo.setWinnerFlag(jsonObject.getString("winner_flag"));
+                euroInfo.setYear(jsonObject.getInt("year"));
+                euroInfo.setSymbol(jsonObject.getString("symbol"));
+
+                euroInfos.add(euroInfo);
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        return euroInfos;
+    }
+
+    public List<GroupStats> parseGroupStats(String data) {
+        Log.d("JsonParser", "start parsing..");
+        JSONArray jsonArray;
+        List<GroupStats> groupStatistics = new ArrayList<>();
+        try {
+            jsonArray = new JSONArray(data);
+            for (int i = 0; i < jsonArray.length(); i++) {
+                GroupStats groupStats = new GroupStats();
+                JSONObject jsonObject = jsonArray.getJSONObject(i);
+                groupStats.setId(jsonObject.getInt("id"));
+                groupStats.setGroup(jsonObject.getString("group"));
+                groupStats.setPlace(jsonObject.getString("place"));
+                groupStats.setCountry(jsonObject.getString("country"));
+                groupStats.setGames(jsonObject.getString("games"));
+                groupStats.setWins(jsonObject.getString("wins"));
+                groupStats.setDraws(jsonObject.getString("draws"));
+                groupStats.setLoses(jsonObject.getString("loses"));
+                groupStats.setBalls(jsonObject.getString("balls"));
+                groupStats.setPoints(jsonObject.getString("points"));
+
+                groupStatistics.add(groupStats);
+            }
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        return groupStatistics;
     }
 
 }

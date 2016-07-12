@@ -1,9 +1,11 @@
 package ru.mzherdev.eurocup;
 
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -11,10 +13,16 @@ import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
+import io.realm.Realm;
 import ru.mzherdev.eurocup.adapter.EuroListAdapter;
 import ru.mzherdev.eurocup.model.EuroInfo;
+import ru.mzherdev.eurocup.tools.tasks.ReadJsonCupsDataTask;
+import ru.mzherdev.eurocup.tools.tasks.ReadJsonDataTask;
+import ru.mzherdev.eurocup.tools.tasks.ReadJsonGroupStatsTask;
 
 public class MainActivity extends AppCompatActivity {
+
+    SharedPreferences prefs = null;
 
     private Map<String, Integer> euros = new TreeMap<>(new Comparator<String>() {
         @Override
@@ -29,9 +37,26 @@ public class MainActivity extends AppCompatActivity {
         initData();
         setContentView(R.layout.activity_main);
         setupUI();
+
+        prefs = getSharedPreferences("ru.mzherdev.eurocup", MODE_PRIVATE);
     }
 
-    private void initData(){
+    @Override
+    protected void onResume() {
+        super.onResume();
+        if (prefs.getBoolean("firstLaunch", true)) {
+
+            new ReadJsonCupsDataTask(this).execute(R.raw.cups);
+            //TODO this is timely, remove init later, add in AppResources initialization
+            new ReadJsonGroupStatsTask(this).execute(R.raw.groups_1980);
+            for (int year = 1960; year <= 2016; year += 4)
+                new ReadJsonDataTask(this).execute(year);
+
+            prefs.edit().putBoolean("firstLaunch", false).commit();
+        }
+    }
+
+    private void initData() {
         euros.put(getString(R.string.euro_place_1960), R.drawable.euro1960);
         euros.put(getString(R.string.euro_place_1964), R.drawable.euro1964);
         euros.put(getString(R.string.euro_place_1968), R.drawable.euro1968);
@@ -65,4 +90,6 @@ public class MainActivity extends AppCompatActivity {
         EuroListAdapter adapter = new EuroListAdapter(getApplicationContext(), euroInfos);
         recyclerView.setAdapter(adapter);
     }
+
+
 }

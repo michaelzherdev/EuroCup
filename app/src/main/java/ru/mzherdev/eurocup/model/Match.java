@@ -3,36 +3,49 @@ package ru.mzherdev.eurocup.model;
 import java.util.HashMap;
 import java.util.Map;
 
+import io.realm.RealmObject;
+import io.realm.annotations.PrimaryKey;
+
 /**
  * Created by macuser on 11.07.16.
  */
 
-public class Match {
+public class Match extends RealmObject{
 
-    private String matchId;
+    @PrimaryKey
+    private long id = 0;
+    private Integer matchId;
     private String country;
     private String city;
     private String stadium;
     private String homeTeam;
     private String awayTeam;
+    private String homeTeamFlag;
+    private String awayTeamFlag;
     private String homeGoalsHalfTime;
     private String awayGoalsHalfTime;
     private String homeGoalsFullTime;
     private String awayGoalsFullTime;
-    private String additionalTime;
+    private boolean additionalTime;
     private String penalty;
     private String year;
     private String month;
     private String day;
     private String round;
 
-    private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+    public long getId() {
+        return id;
+    }
 
-    public String getMatchId() {
+    public void setId(long id) {
+        this.id = id;
+    }
+
+    public Integer getMatchId() {
         return matchId;
     }
 
-    public void setMatchId(String matchId) {
+    public void setMatchId(Integer matchId) {
         this.matchId = matchId;
     }
 
@@ -108,11 +121,11 @@ public class Match {
         this.awayGoalsFullTime = awayGoalsFullTime;
     }
 
-    public String getAdditionalTime() {
+    public boolean isAdditionalTime() {
         return additionalTime;
     }
 
-    public void setAdditionalTime(String additionalTime) {
+    public void setAdditionalTime(boolean additionalTime) {
         this.additionalTime = additionalTime;
     }
 
@@ -156,6 +169,22 @@ public class Match {
         this.round = round;
     }
 
+    public String getHomeTeamFlag() {
+        return homeTeamFlag;
+    }
+
+    public void setHomeTeamFlag(String homeTeamFlag) {
+        this.homeTeamFlag = homeTeamFlag;
+    }
+
+    public String getAwayTeamFlag() {
+        return awayTeamFlag;
+    }
+
+    public void setAwayTeamFlag(String awayTeamFlag) {
+        this.awayTeamFlag = awayTeamFlag;
+    }
+
     @Override
     public String toString() {
         return "Match{" +
@@ -175,7 +204,6 @@ public class Match {
                 ", month='" + month + '\'' +
                 ", day='" + day + '\'' +
                 ", round='" + round + '\'' +
-                ", additionalProperties=" + additionalProperties +
                 '}';
     }
 }

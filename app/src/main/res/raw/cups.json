@@ -1,0 +1,122 @@
+[
+  {
+    "id": "1",
+    "location": "France",
+    "winner": "USSR",
+    "winner_flag": "drawable/euro1960",
+    "year": "1960",
+    "symbol": "drawable/euro1960"
+  },
+  {
+    "id": "2",
+    "location": "Spain",
+    "winner": "Spain",
+    "winner_flag": "drawable/euro1964",
+    "year": "1960",
+    "symbol": "drawable/euro1964"
+  },
+  {
+    "id": "3",
+    "location": "Italy",
+    "winner": "Italy",
+    "winner_flag": "drawable/euro1968",
+    "year": "1968",
+    "symbol": "drawable/euro1968"
+  },
+  {
+    "id": "4",
+    "location": "Belgium",
+    "winner": "FRG",
+    "winner_flag": "drawable/euro1972",
+    "year": "1972",
+    "symbol": "drawable/euro1972"
+  },
+  {
+    "id": "5",
+    "location": "Yugoslavia",
+    "winner": "Czechoslovakia",
+    "winner_flag": "drawable/euro1976",
+    "year": "1976",
+    "symbol": "drawable/euro1976"
+  },
+  {
+    "id": "6",
+    "location": "Italy",
+    "winner": "FRG",
+    "winner_flag": "drawable/euro1980",
+    "year": "1980",
+    "symbol": "drawable/euro1980"
+  },
+  {
+    "id": "7",
+    "location": "France",
+    "winner": "France",
+    "winner_flag": "drawable/euro1984",
+    "year": "1984",
+    "symbol": "drawable/euro1984"
+  },
+  {
+    "id": "8",
+    "location": "FRG",
+    "winner": "Netherlands",
+    "winner_flag": "drawable/euro1988",
+    "year": "1988",
+    "symbol": "drawable/euro1988"
+  },
+  {
+    "id": "9",
+    "location": "Sweden",
+    "winner": "Denmark",
+    "winner_flag": "drawable/euro1992",
+    "year": "1992",
+    "symbol": "drawable/euro1992"
+  },
+  {
+    "id": "10",
+    "location": "England",
+    "winner": "Germany",
+    "winner_flag": "drawable/euro1996",
+    "year": "1996",
+    "symbol": "drawable/euro1996"
+  },
+  {
+    "id": "11",
+    "location": "Belgium/Netherlands",
+    "winner": "France",
+    "winner_flag": "drawable/euro2000",
+    "year": "2000",
+    "symbol": "drawable/euro2000"
+  },
+  {
+    "id": "12",
+    "location": "Portugal",
+    "winner": "Greece",
+    "winner_flag": "drawable/euro2004",
+    "year": "2004",
+    "symbol": "drawable/euro2004"
+  },
+  {
+    "id": "13",
+    "location": "Austria/Switzerland",
+    "winner": "Spain",
+    "winner_flag": "drawable/euro2008",
+    "year": "2008",
+    "symbol": "drawable/euro2008"
+  },
+  {
+    "id": "14",
+    "location": "Ukraine/Poland",
+    "winner": "Spain",
+    "winner_flag": "drawable/euro2012",
+    "year": "2012",
+    "symbol": "drawable/euro2012"
+  },
+  {
+    "id": "15",
+    "location": "France",
+    "winner": "Portugal",
+    "winner_flag": "drawable/euro2016",
+    "year": "2016",
+    "symbol": "drawable/euro2016"
+  }
+]
