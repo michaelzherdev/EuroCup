@@ -16,6 +16,7 @@ import java.util.TreeMap;
 import io.realm.Realm;
 import ru.mzherdev.eurocup.adapter.EuroListAdapter;
 import ru.mzherdev.eurocup.model.EuroInfo;
+import ru.mzherdev.eurocup.tools.AppResources;
 import ru.mzherdev.eurocup.tools.tasks.ReadJsonCupsDataTask;
 import ru.mzherdev.eurocup.tools.tasks.ReadJsonDataTask;
 import ru.mzherdev.eurocup.tools.tasks.ReadJsonGroupStatsTask;
@@ -47,10 +48,12 @@ public class MainActivity extends AppCompatActivity {
         if (prefs.getBoolean("firstLaunch", true)) {
 
             new ReadJsonCupsDataTask(this).execute(R.raw.cups);
-            //TODO this is timely, remove init later, add in AppResources initialization
-            new ReadJsonGroupStatsTask(this).execute(R.raw.groups_1980);
-            for (int year = 1960; year <= 2016; year += 4)
+            for (int year = 1960; year <= 2016; year += 4) {
                 new ReadJsonDataTask(this).execute(year);
+                if (year >= 1980)
+                    new ReadJsonGroupStatsTask(this).execute(AppResources.getGroups(year));
+            }
+
 
             prefs.edit().putBoolean("firstLaunch", false).commit();
         }

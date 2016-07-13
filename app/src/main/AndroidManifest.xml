@@ -21,7 +21,7 @@
         <activity android:name=".ui.EuroCupActivity"
             android:configChanges="orientation"
             android:screenOrientation="portrait" />
-        <activity android:name=".ui.GroupTableActivity"
+        <activity android:name=".ui.GroupResultsActivity"
             android:configChanges="orientation"
             android:screenOrientation="portrait" />
     </application>

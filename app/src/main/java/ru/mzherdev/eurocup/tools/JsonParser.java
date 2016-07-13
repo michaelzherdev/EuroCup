@@ -33,11 +33,7 @@ public class JsonParser {
                 match.setCity(jsonObject.getString("city"));
                 match.setStadium(jsonObject.getString("stadium"));
                 match.setHomeTeam(jsonObject.getString("home_team"));
-                if (jsonObject.has("home_team_flag"))
-                    match.setHomeTeamFlag(jsonObject.getString("home_team_flag"));
                 match.setAwayTeam(jsonObject.getString("away_team"));
-                if (jsonObject.has("away_team_flag"))
-                    match.setAwayTeamFlag(jsonObject.getString("away_team_flag"));
                 match.setHomeGoalsHalfTime(jsonObject.getString("home_goals_half_time"));
                 match.setAwayGoalsHalfTime(jsonObject.getString("away_goals_half_time"));
                 match.setHomeGoalsFullTime(jsonObject.getString("home_goals_full_time"));
@@ -92,7 +88,8 @@ public class JsonParser {
             for (int i = 0; i < jsonArray.length(); i++) {
                 GroupStats groupStats = new GroupStats();
                 JSONObject jsonObject = jsonArray.getJSONObject(i);
-                groupStats.setId(jsonObject.getInt("id"));
+                groupStats.setGroupId(jsonObject.getInt("id"));
+                groupStats.setYear(jsonObject.getInt("year"));
                 groupStats.setGroup(jsonObject.getString("group"));
                 groupStats.setPlace(jsonObject.getString("place"));
                 groupStats.setCountry(jsonObject.getString("country"));

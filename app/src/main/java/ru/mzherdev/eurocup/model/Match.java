@@ -20,8 +20,6 @@ public class Match extends RealmObject{
     private String stadium;
     private String homeTeam;
     private String awayTeam;
-    private String homeTeamFlag;
-    private String awayTeamFlag;
     private String homeGoalsHalfTime;
     private String awayGoalsHalfTime;
     private String homeGoalsFullTime;
@@ -167,22 +165,6 @@ public class Match extends RealmObject{
 
     public void setRound(String round) {
         this.round = round;
-    }
-
-    public String getHomeTeamFlag() {
-        return homeTeamFlag;
-    }
-
-    public void setHomeTeamFlag(String homeTeamFlag) {
-        this.homeTeamFlag = homeTeamFlag;
-    }
-
-    public String getAwayTeamFlag() {
-        return awayTeamFlag;
-    }
-
-    public void setAwayTeamFlag(String awayTeamFlag) {
-        this.awayTeamFlag = awayTeamFlag;
     }
 
     @Override

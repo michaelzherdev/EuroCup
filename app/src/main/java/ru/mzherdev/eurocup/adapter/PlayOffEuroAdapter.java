@@ -14,6 +14,7 @@ import java.util.List;
 
 import ru.mzherdev.eurocup.R;
 import ru.mzherdev.eurocup.model.Match;
+import ru.mzherdev.eurocup.tools.AppResources;
 
 /**
  * Created by macuser on 12.07.16.
@@ -62,16 +63,16 @@ public class PlayOffEuroAdapter extends RecyclerView.Adapter<PlayOffEuroAdapter.
         if (match.getPenalty() != null && !match.getPenalty().trim().isEmpty())
             viewHolder.penaltyTextView.setText("pen." + match.getPenalty());
 
-        int imageResourceHomeTeamFlag = ctx.getResources().getIdentifier(match.getHomeTeamFlag(), null, ctx.getPackageName());
+        int imageResourceHomeTeamFlag = AppResources.getFlagOfCountry(match.getHomeTeam());
         Picasso.with(ctx)
                 .load(imageResourceHomeTeamFlag)
-                .resize(80, 54)
+                .resize(40, 28)
                 .centerInside()
                 .into(viewHolder.homeTeamImageView);
-        int imageResourceAwayTeamFlag = ctx.getResources().getIdentifier(match.getAwayTeamFlag(), null, ctx.getPackageName());
+        int imageResourceAwayTeamFlag = AppResources.getFlagOfCountry(match.getAwayTeam());
         Picasso.with(ctx)
                 .load(imageResourceAwayTeamFlag)
-                .resize(80, 54)
+                .resize(40, 28)
                 .centerInside()
                 .into(viewHolder.awayTeamImageView);
 

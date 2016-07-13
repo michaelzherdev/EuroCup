@@ -10,6 +10,8 @@ import io.realm.annotations.PrimaryKey;
 public class GroupStats extends RealmObject{
     @PrimaryKey
     private long id;
+    private long groupId;
+    private int year;
     private String group;
     private String place;
     private String country;
@@ -26,6 +28,22 @@ public class GroupStats extends RealmObject{
 
     public void setId(long id) {
         this.id = id;
+    }
+
+    public long getGroupId() {
+        return groupId;
+    }
+
+    public void setGroupId(long groupId) {
+        this.groupId = groupId;
+    }
+
+    public int getYear() {
+        return year;
+    }
+
+    public void setYear(int year) {
+        this.year = year;
     }
 
     public String getGroup() {

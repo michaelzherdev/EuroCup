@@ -7,6 +7,7 @@ import java.util.List;
 
 import io.realm.Realm;
 import io.realm.RealmModel;
+import io.realm.Sort;
 import ru.mzherdev.eurocup.model.EuroInfo;
 import ru.mzherdev.eurocup.model.GroupStats;
 import ru.mzherdev.eurocup.model.Match;
@@ -91,6 +92,51 @@ public final class DBHandler {
     }
 
     public List<Match> getGroupMatchesByYear(int year) {
-        return Realm.getDefaultInstance().where(Match.class).equalTo("year", String.valueOf(year)).beginsWith("round", "group").findAll();
+        return Realm.getDefaultInstance()
+                .where(Match.class)
+                .equalTo("year", String.valueOf(year))
+                .beginsWith("round", "group")
+                .findAll()
+                .sort("matchId", Sort.ASCENDING);
     }
+
+    public List<Match> getGroupMatchesByYear(int year, String groupName) {
+        return Realm.getDefaultInstance()
+                .where(Match.class)
+                .equalTo("year", String.valueOf(year))
+                .equalTo("round", groupName)
+                .findAll()
+                .sort("matchId", Sort.ASCENDING);
+    }
+
+    public int getNumberOfGroups(int year) {
+        switch (year) {
+            case 1980:
+            case 1984:
+            case 1988:
+            case 1992:
+                return 2;
+            case 1996:
+            case 2000:
+            case 2004:
+            case 2008:
+            case 2012:
+                return 4;
+            case 2016:
+                return 6;
+            default:
+                return 0;
+
+        }
+    }
+
+    public EuroInfo getEuroInfo(int position) {
+        return Realm.getDefaultInstance().where(EuroInfo.class).equalTo("id", ++position).findFirst();
+    }
+
+    public List<GroupStats> getGroupStats(int year) {
+        return Realm.getDefaultInstance().where(GroupStats.class).equalTo("year", year).findAll();
+    }
+
+
 }
