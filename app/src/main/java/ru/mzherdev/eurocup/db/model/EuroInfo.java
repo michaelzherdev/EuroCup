@@ -1,4 +1,4 @@
-package ru.mzherdev.eurocup.model;
+package ru.mzherdev.eurocup.db.model;
 
 import io.realm.RealmObject;
 import io.realm.annotations.PrimaryKey;

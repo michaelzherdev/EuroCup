@@ -1,4 +1,4 @@
-package ru.mzherdev.eurocup.adapter;
+package ru.mzherdev.eurocup.ui.adapter;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -13,7 +13,7 @@ import com.squareup.picasso.Picasso;
 import java.util.List;
 
 import ru.mzherdev.eurocup.R;
-import ru.mzherdev.eurocup.model.Match;
+import ru.mzherdev.eurocup.db.model.Match;
 import ru.mzherdev.eurocup.tools.AppResources;
 
 /**

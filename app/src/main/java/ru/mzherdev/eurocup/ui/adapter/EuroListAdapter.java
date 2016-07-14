@@ -1,9 +1,8 @@
-package ru.mzherdev.eurocup.adapter;
+package ru.mzherdev.eurocup.ui.adapter;
 
 import android.content.Context;
 import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,8 +14,7 @@ import com.squareup.picasso.Picasso;
 import java.util.List;
 
 import ru.mzherdev.eurocup.R;
-import ru.mzherdev.eurocup.model.EuroInfo;
-import ru.mzherdev.eurocup.model.Match;
+import ru.mzherdev.eurocup.db.model.EuroInfo;
 import ru.mzherdev.eurocup.ui.EuroCupActivity;
 
 /**

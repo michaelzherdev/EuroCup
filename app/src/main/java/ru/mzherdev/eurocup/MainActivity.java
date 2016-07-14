@@ -5,7 +5,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -13,9 +12,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
-import io.realm.Realm;
-import ru.mzherdev.eurocup.adapter.EuroListAdapter;
-import ru.mzherdev.eurocup.model.EuroInfo;
+import ru.mzherdev.eurocup.ui.adapter.EuroListAdapter;
+import ru.mzherdev.eurocup.db.model.EuroInfo;
 import ru.mzherdev.eurocup.tools.AppResources;
 import ru.mzherdev.eurocup.tools.tasks.ReadJsonCupsDataTask;
 import ru.mzherdev.eurocup.tools.tasks.ReadJsonDataTask;

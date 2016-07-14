@@ -1,10 +1,10 @@
-package ru.mzherdev.eurocup.model;
+package ru.mzherdev.eurocup.db.model;
 
 import io.realm.RealmObject;
 import io.realm.annotations.PrimaryKey;
 
 /**
- * Created by macuser on 12.07.16.
+ * Created by Mikhail on 12.07.16.
  */
 
 public class GroupStats extends RealmObject{

@@ -6,7 +6,7 @@ import io.realm.Realm;
 import io.realm.RealmConfiguration;
 
 /**
- * Created by macuser on 12.07.16.
+ * Created by Mikhail on 12.07.16.
  */
 
 public class EuroCupApplication extends Application {

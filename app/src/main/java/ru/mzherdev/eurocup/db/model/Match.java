@@ -1,13 +1,10 @@
-package ru.mzherdev.eurocup.model;
-
-import java.util.HashMap;
-import java.util.Map;
+package ru.mzherdev.eurocup.db.model;
 
 import io.realm.RealmObject;
 import io.realm.annotations.PrimaryKey;
 
 /**
- * Created by macuser on 11.07.16.
+ * Created by Mikhail on 11.07.16.
  */
 
 public class Match extends RealmObject{

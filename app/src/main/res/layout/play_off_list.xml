@@ -13,8 +13,11 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="16dp"
-        android:textColor="@color/textColor"
+        android:layout_marginTop="@dimen/play_off_textView_margin"
+        android:shadowColor="@color/whiteColor"
+        android:shadowRadius="4"
+        android:textColor="@color/textButtonColor"
+        android:textStyle="bold"
         android:textAllCaps="true" />
 
     <TextView
@@ -23,7 +26,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_below="@id/stage_textView"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="@dimen/play_off_textView_margin"
+        android:textColor="@color/textButtonColor"
         android:textSize="12sp" />
 
     <TextView
@@ -32,7 +36,8 @@
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_below="@+id/stage_textView"
-        android:layout_marginEnd="16dp"
+        android:layout_marginEnd="@dimen/play_off_textView_margin"
+        android:textColor="@color/textButtonColor"
         android:textSize="12sp"  />
 
 
@@ -43,7 +48,10 @@
         android:layout_below="@+id/date_textView"
         android:layout_centerHorizontal="true"
         android:textSize="18sp"
-        android:textColor="@color/textColor"  />
+        android:shadowColor="@color/textColor"
+        android:shadowRadius="2"
+        android:textColor="@color/whiteColor"
+        android:textStyle="bold"  />
 
     <TextView
         android:id="@+id/half_result_textView"
@@ -52,7 +60,10 @@
         android:layout_below="@+id/result_textView"
         android:layout_centerHorizontal="true"
         android:textSize="12sp"
-        android:textColor="@color/textColor"  />
+        android:shadowColor="@color/textColor"
+        android:shadowRadius="2"
+        android:textColor="@color/whiteColor"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/penalty_textView"
@@ -60,25 +71,29 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/half_result_textView"
         android:layout_centerHorizontal="true"
-        android:textSize="12sp"  />
+        android:textSize="12sp"
+        android:shadowColor="@color/textColor"
+        android:shadowRadius="2"
+        android:textColor="@color/whiteColor"
+        android:textStyle="bold"  />
 
 
     <ImageView
         android:id="@+id/home_team_imageView"
-        android:layout_width="40dp"
-        android:layout_height="28dp"
+        android:layout_width="@dimen/play_off_imageView_width"
+        android:layout_height="@dimen/play_off_imageView_height"
         android:layout_below="@id/date_textView"
-        android:layout_marginEnd="20dp"
+        android:layout_marginEnd="@dimen/play_off_imageView_margin"
         android:layout_toStartOf="@id/result_textView"
         android:contentDescription="Home team flag"
         android:src="@drawable/euro2016" />
 
     <ImageView
         android:id="@+id/away_team_imageView"
-        android:layout_width="40dp"
-        android:layout_height="28dp"
+        android:layout_width="@dimen/play_off_imageView_width"
+        android:layout_height="@dimen/play_off_imageView_height"
         android:layout_below="@id/date_textView"
-        android:layout_marginStart="20dp"
+        android:layout_marginStart="@dimen/play_off_imageView_margin"
         android:layout_toEndOf="@id/result_textView"
         android:contentDescription="Away team flag"
         android:src="@drawable/euro2016" />
@@ -88,18 +103,26 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/date_textView"
-        android:layout_margin="16dp"
+        android:layout_margin="@dimen/play_off_textView_margin"
         android:layout_toStartOf="@id/home_team_imageView"
         android:textSize="14sp"
-        android:textColor="@color/textColor"  />
+        android:shadowColor="@color/textColor"
+        android:shadowRadius="4"
+        android:textColor="@color/whiteColor"
+        android:textStyle="bold"
+        android:textAllCaps="true"/>
 
     <TextView
         android:id="@+id/away_team_textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/date_textView"
-        android:layout_margin="16dp"
+        android:layout_margin="@dimen/play_off_textView_margin"
         android:layout_toEndOf="@id/away_team_imageView"
         android:textSize="14sp"
-        android:textColor="@color/textColor"/>
+        android:shadowColor="@color/textColor"
+        android:shadowRadius="4"
+        android:textColor="@color/whiteColor"
+        android:textStyle="bold"
+        android:textAllCaps="true"/>
 </RelativeLayout>

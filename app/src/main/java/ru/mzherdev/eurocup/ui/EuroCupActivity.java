@@ -1,13 +1,12 @@
 package ru.mzherdev.eurocup.ui;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,14 +22,14 @@ import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
 import java.util.List;
 
-import io.realm.Realm;
 import ru.mzherdev.eurocup.R;
 import ru.mzherdev.eurocup.RootActivity;
-import ru.mzherdev.eurocup.adapter.PlayOffEuroAdapter;
+import ru.mzherdev.eurocup.tools.AnimUtils;
+import ru.mzherdev.eurocup.ui.adapter.PlayOffEuroAdapter;
 import ru.mzherdev.eurocup.db.DBHandler;
-import ru.mzherdev.eurocup.model.EuroInfo;
-import ru.mzherdev.eurocup.model.GroupStats;
-import ru.mzherdev.eurocup.model.Match;
+import ru.mzherdev.eurocup.db.model.EuroInfo;
+import ru.mzherdev.eurocup.db.model.GroupStats;
+import ru.mzherdev.eurocup.db.model.Match;
 import ru.mzherdev.eurocup.tools.AppResources;
 
 /**
@@ -52,6 +51,7 @@ public class EuroCupActivity extends RootActivity implements View.OnClickListene
     private List<GroupStats> groupStats;
     EuroInfo euroInfo;
     LinearLayout linearLayout;
+    RecyclerView recyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,7 +71,7 @@ public class EuroCupActivity extends RootActivity implements View.OnClickListene
 
     private void setupUI() {
         TextView textViewYear = (TextView) findViewById(R.id.euro_year);
-        textViewYear.setText(getString(R.string.app_name) + " " + year);
+        textViewYear.setText(getString(R.string.euro_name) + " " + year);
 
         TextView textViewLocation = (TextView) findViewById(R.id.euro_location);
         textViewLocation.setText(getString(R.string.euro_location) + " " + euroInfo.getLocation());
@@ -93,11 +93,14 @@ public class EuroCupActivity extends RootActivity implements View.OnClickListene
         Button buttonGroupStage = (Button) findViewById(R.id.button_group_stage);
         buttonGroupStage.setOnClickListener(this);
 
+        Button buttonWiki = (Button) findViewById(R.id.button_wiki);
+        buttonWiki.setOnClickListener(this);
+
         if (year < 1980) {
-            buttonGroupStage.setVisibility(View.INVISIBLE);
+            buttonGroupStage.setVisibility(View.GONE);
         }
 
-        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.play_off_recyclerView);
+        recyclerView = (RecyclerView) findViewById(R.id.play_off_recyclerView);
         recyclerView.setHasFixedSize(true);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(layoutManager);
@@ -107,42 +110,42 @@ public class EuroCupActivity extends RootActivity implements View.OnClickListene
 
         linearLayout = (LinearLayout) findViewById(R.id.group_linear_layout);
         initLinearLayout(linearLayout);
-        linearLayout.setVisibility(View.INVISIBLE);
+        linearLayout.setVisibility(View.GONE);
     }
 
 
     private TableRow getHeaderTableRow() {
         LinearLayout.LayoutParams layoutParams = new TableRow.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,
                 ViewGroup.LayoutParams.MATCH_PARENT);
-//        layoutParams.setMargins(16, 16, 0, 0);
 
         TableRow tableRow = new TableRow(this);
         tableRow.setLayoutParams(layoutParams);
-        tableRow.setBackgroundColor(Color.LTGRAY);
+        tableRow.setBackgroundColor(ContextCompat.getColor(this, R.color.colorAccent));
 
         TextView placeTextView = new TextView(this);
-        placeTextView.setText("#");
+        placeTextView.setGravity(Gravity.CENTER);
+        placeTextView.setText(R.string.group_place);
 
         TextView countryTextView = new TextView(this);
-        countryTextView.setText("Country");
+        countryTextView.setText(R.string.group_country);
 
         TextView gamesTextView = new TextView(this);
-        gamesTextView.setText("G");
+        gamesTextView.setText(R.string.group_games);
 
         TextView winsTextView = new TextView(this);
-        winsTextView.setText("W");
+        winsTextView.setText(R.string.group_wins);
 
         TextView drawTextView = new TextView(this);
-        drawTextView.setText("D");
+        drawTextView.setText(R.string.group_draws);
 
         TextView losesTextView = new TextView(this);
-        losesTextView.setText("L");
+        losesTextView.setText(R.string.group_loses);
 
         TextView ballsTextView = new TextView(this);
-        ballsTextView.setText("B");
+        ballsTextView.setText(R.string.group_balls);
 
         TextView pointsTextView = new TextView(this);
-        pointsTextView.setText("P");
+        pointsTextView.setText(R.string.group_points);
 
         tableRow.addView(placeTextView);
         tableRow.addView(countryTextView);
@@ -172,7 +175,6 @@ public class EuroCupActivity extends RootActivity implements View.OnClickListene
             tableLayout.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Log.d("main", "onClick");
                     Intent intent = new Intent(getApplicationContext(), GroupResultsActivity.class);
                     intent.putExtra("euro_year", year);
                     intent.putExtra("euro_data", euroCupNumber);
@@ -200,6 +202,7 @@ public class EuroCupActivity extends RootActivity implements View.OnClickListene
 
             TextView placeTextView = new TextView(this);
             placeTextView.setText(groupStats.get(i).getPlace());
+            placeTextView.setGravity(Gravity.CENTER);
 
             TextView countryTextView = new TextView(this);
             countryTextView.setText(groupStats.get(i).getCountry());
@@ -242,22 +245,32 @@ public class EuroCupActivity extends RootActivity implements View.OnClickListene
             case R.id.button_play_off:
                 if (!isPlayOffBtnPressed) {
                     isPlayOffBtnPressed = true;
-                    adapter.setMatches(matches);
-                    adapter.notifyDataSetChanged();
+//                    adapter.setMatches(matches);
+//                    adapter.notifyDataSetChanged();
+                    AnimUtils.expand(recyclerView);
                 } else {
                     isPlayOffBtnPressed = false;
-                    adapter.setMatches(new ArrayList<Match>());
-                    adapter.notifyDataSetChanged();
+//                    adapter.setMatches(new ArrayList<Match>());
+//                    adapter.notifyDataSetChanged();
+                    AnimUtils.collapse(recyclerView);
                 }
                 break;
             case R.id.button_group_stage:
                 if (!isGroupStageBtnPressed) {
-                    linearLayout.setVisibility(View.VISIBLE);
+                    AnimUtils.expand(linearLayout);
+//                    linearLayout.setVisibility(View.VISIBLE);
                     isGroupStageBtnPressed = true;
                 } else {
-                    linearLayout.setVisibility(View.INVISIBLE);
+                    AnimUtils.collapse(linearLayout);
+//                    linearLayout.setVisibility(View.GONE);
                     isGroupStageBtnPressed = false;
                 }
+                break;
+            case R.id.button_wiki:
+                String url = getString(R.string.wiki_url) + year;
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                intent.setData(Uri.parse(url));
+                startActivity(intent);
                 break;
             default:
                 break;

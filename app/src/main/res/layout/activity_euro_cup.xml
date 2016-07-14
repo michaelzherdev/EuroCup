@@ -55,8 +55,11 @@
             android:id="@+id/button_play_off"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="32dp"
-            android:layout_marginRight="32dp"
+            android:layout_marginLeft="@dimen/activity_euro_button_marginLeft"
+            android:layout_marginRight="@dimen/activity_euro_button_marginRight"
+            android:layout_marginBottom="@dimen/activity_euro_button_marginBottom"
+            style="@style/AppTheme.Widget.Button.GroupButton"
+            android:textAllCaps="true"
             android:text="@string/button_play_off" />
 
         <android.support.v7.widget.RecyclerView
@@ -69,19 +72,36 @@
             android:id="@+id/button_group_stage"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="32dp"
-            android:layout_marginRight="32dp"
+            android:layout_marginLeft="@dimen/activity_euro_button_marginLeft"
+            android:layout_marginRight="@dimen/activity_euro_button_marginRight"
+            android:layout_marginTop="@dimen/activity_euro_button_marginBottom"
+            android:layout_marginBottom="@dimen/activity_euro_button_marginBottom"
+            style="@style/AppTheme.Widget.Button.GroupButton"
+            android:textAllCaps="true"
             android:text="@string/button_group_stage"/>
 
         <LinearLayout
             android:id="@+id/group_linear_layout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_margin="16dp"
+            android:layout_marginLeft="@dimen/activity_euro_linear_layout_margin"
+            android:layout_marginRight="@dimen/activity_euro_linear_layout_margin"
+            android:layout_marginBottom="@dimen/activity_euro_linear_layout_margin"
             android:background="@color/whiteColor"
             android:gravity="center_horizontal"
             android:layout_gravity="center_horizontal"
             android:orientation="vertical" />
+
+        <Button
+            android:id="@+id/button_wiki"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/activity_euro_button_marginBottom"
+            android:layout_marginLeft="@dimen/activity_euro_button_marginLeft"
+            android:layout_marginRight="@dimen/activity_euro_button_marginRight"
+            style="@style/AppTheme.Widget.Button.GroupButton"
+            android:textAllCaps="true"
+            android:text="@string/button_wiki"/>
 
     </LinearLayout>
 </ScrollView>

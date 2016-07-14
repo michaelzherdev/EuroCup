@@ -13,19 +13,19 @@
             android:id="@+id/row_image"
             android:layout_width="160dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="5dp"/>
+            android:layout_marginLeft="@dimen/row_list_imageView_marginLeft"
+            android:layout_marginTop="@dimen/row_list_imageView_marginTop"/>
 
         <TextView
             android:id="@+id/row_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textStyle="bold"
-            android:textSize="18dp"
+            android:textSize="18sp"
             android:textAllCaps="true"
-            android:textColor="@color/colorPrimary"
+            android:textColor="@color/colorPrimaryDark"
             android:layout_gravity="center"
-            android:layout_marginLeft="16dp"/>
+            android:layout_marginLeft="8dp"/>
     </LinearLayout>
 
 </android.support.v7.widget.CardView>

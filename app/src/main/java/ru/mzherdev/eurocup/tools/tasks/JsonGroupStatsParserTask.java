@@ -6,7 +6,7 @@ import android.util.Log;
 import java.util.List;
 
 import ru.mzherdev.eurocup.db.DBHandler;
-import ru.mzherdev.eurocup.model.GroupStats;
+import ru.mzherdev.eurocup.db.model.GroupStats;
 import ru.mzherdev.eurocup.tools.JsonParser;
 
 /**

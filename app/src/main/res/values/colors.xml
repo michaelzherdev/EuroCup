@@ -7,4 +7,5 @@
     <color name="textColor">#353535</color>
     <color name="textBorderColor">#af4c00</color>
     <color name="whiteColor">#ffffff</color>
+    <color name="textButtonColor">#361d07</color>
 </resources>

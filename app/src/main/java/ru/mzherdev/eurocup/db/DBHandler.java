@@ -2,18 +2,16 @@ package ru.mzherdev.eurocup.db;
 
 import android.util.Log;
 
-import java.util.Iterator;
 import java.util.List;
 
 import io.realm.Realm;
-import io.realm.RealmModel;
 import io.realm.Sort;
-import ru.mzherdev.eurocup.model.EuroInfo;
-import ru.mzherdev.eurocup.model.GroupStats;
-import ru.mzherdev.eurocup.model.Match;
+import ru.mzherdev.eurocup.db.model.EuroInfo;
+import ru.mzherdev.eurocup.db.model.GroupStats;
+import ru.mzherdev.eurocup.db.model.Match;
 
 /**
- * Created by macuser on 12.07.16.
+ * Created by Mikhail on 12.07.16.
  */
 
 public final class DBHandler {

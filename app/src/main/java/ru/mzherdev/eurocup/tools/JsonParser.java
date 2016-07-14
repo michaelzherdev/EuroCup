@@ -9,12 +9,12 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-import ru.mzherdev.eurocup.model.EuroInfo;
-import ru.mzherdev.eurocup.model.GroupStats;
-import ru.mzherdev.eurocup.model.Match;
+import ru.mzherdev.eurocup.db.model.EuroInfo;
+import ru.mzherdev.eurocup.db.model.GroupStats;
+import ru.mzherdev.eurocup.db.model.Match;
 
 /**
- * Created by macuser on 11.07.16.
+ * Created by Mikhail on 11.07.16.
  */
 
 public class JsonParser {

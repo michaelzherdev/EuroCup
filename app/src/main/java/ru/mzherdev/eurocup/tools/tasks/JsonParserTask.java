@@ -8,7 +8,7 @@ import java.util.Comparator;
 import java.util.List;
 
 import ru.mzherdev.eurocup.db.DBHandler;
-import ru.mzherdev.eurocup.model.Match;
+import ru.mzherdev.eurocup.db.model.Match;
 import ru.mzherdev.eurocup.tools.JsonParser;
 
 /**

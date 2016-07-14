@@ -8,4 +8,11 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <!-- Button theme-->
+    <style name="AppTheme.Widget.Button.GroupButton" parent="android:Widget">
+        <item name="android:background">@drawable/main_button_background</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textColor">@color/textButtonColor</item>
+        <item name="android:textSize">18sp</item>
+    </style>
 </resources>
